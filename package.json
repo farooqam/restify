@@ -1,0 +1,32 @@
+{
+  "name": "restify-api-sample",
+  "version": "1.0.0",
+  "description": "A sample API built on the Restify library.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/farooqam/restify.git"
+  },
+  "author": "Farooq Mahmud",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/farooqam/restify/issues"
+  },
+  "homepage": "https://github.com/farooqam/restify#readme",
+  "dependencies": {
+    "http-status": "^1.2.0",
+    "lodash": "^4.17.11",
+    "restify": "^7.2.1",
+    "restify-errors": "^6.1.1",
+    "restify-logger": "^2.0.1",
+    "uuid": "^3.3.2",
+    "winston": "^3.1.0"
+  },
+  "optionalDependencies": {
+    "dtrace-provider": "^0.8.1"
+  }
+}
