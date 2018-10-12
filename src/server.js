@@ -23,7 +23,7 @@ server.use(restifyLogger("log-request-format"));
 server.use(restify.plugins.acceptParser(server.acceptable));
 server.use(restify.plugins.bodyParser());
 
-server.get("/api/ping", function(req, res, next) {
+server.get("/api/ping", (req, res, next) => {
     res.send(httpStatus.OK, {
         "version": "1.0.0",
         "status": "green"
@@ -32,7 +32,7 @@ server.get("/api/ping", function(req, res, next) {
     return next();
 });
 
-server.post("/api/tasks", function(req, res, next) {
+server.post("/api/tasks", (req, res, next) => {
 
     if(!req.body) {
         return next(new restifyErrors.InvalidArgumentError("Ivalid request body."));
@@ -58,9 +58,9 @@ server.post("/api/tasks", function(req, res, next) {
     return next();
 });
 
-server.get("/api/tasks/:id", function(req, res, next) {
+server.get("/api/tasks/:id", (req, res, next) => {
 
-    const task = _.find(tasks, function(t) {
+    const task = _.find(tasks, (t) => {
         return t.id == req.params.id;
     });
 
@@ -72,7 +72,7 @@ server.get("/api/tasks/:id", function(req, res, next) {
     return next();
 });
 
-server.listen(8080, function() {
+server.listen(8080, () => {
     logger.log("info", `${server.name} listening at ${server.url}`);
 });
 
