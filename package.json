@@ -4,6 +4,7 @@
   "description": "A sample API built on the Restify library.",
   "main": "server.js",
   "scripts": {
+    "lint": "eslint .",
     "start": "node server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -28,5 +29,8 @@
   },
   "optionalDependencies": {
     "dtrace-provider": "^0.8.1"
+  },
+  "devDependencies": {
+    "eslint": "^5.6.1"
   }
 }

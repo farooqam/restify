@@ -2,31 +2,31 @@ const restify = require("restify");
 const restifyLogger = require("restify-logger");
 const restifyErrors = require("restify-errors");
 const winston = require("winston");
-const uuid = require('uuid/v1');
-const _ = require('lodash');
+const uuid = require("uuid/v1");
+const _ = require("lodash");
 const httpStatus = require("http-status");
 
 const logger = winston.createLogger({
-    level: 'info',
-    format: winston.format.json(),
-    transports: [
+    "level": "info",
+    "format": winston.format.json(),
+    "transports": [
         new winston.transports.Console(),
     ]
-  });
+});
 
-restifyLogger.format('log-request-format', ':method :url :status')
+restifyLogger.format("log-request-format", ":method :url :status");
 
 const server = restify.createServer();
 server.pre(restify.plugins.pre.dedupeSlashes());
 
-server.use(restifyLogger('log-request-format'));
+server.use(restifyLogger("log-request-format"));
 server.use(restify.plugins.acceptParser(server.acceptable));
 server.use(restify.plugins.bodyParser());
 
 server.get("/api/ping", function(req, res, next) {
     res.send(httpStatus.OK, {
-        version: "1.0.0",
-        status: "green"
+        "version": "1.0.0",
+        "status": "green"
     });
 
     return next();
@@ -47,9 +47,9 @@ server.post("/api/tasks", function(req, res, next) {
     }
 
     const newTask = {
-        id: uuid(),
-        name: req.body.name,
-        dueDate: req.body.dueDate
+        "id": uuid(),
+        "name": req.body.name,
+        "dueDate": req.body.dueDate
     };
 
     tasks.push(newTask);
@@ -65,7 +65,7 @@ server.get("/api/tasks/:id", function(req, res, next) {
     });
 
     if (!task) {
-        return next(new restifyErrors.NotFoundError(`Task with id '${req.params.id}' not found.`));
+        return next(new restifyErrors.NotFoundError(`Task with id "${req.params.id}" not found.`));
     }
 
     res.send(httpStatus.OK, task);
