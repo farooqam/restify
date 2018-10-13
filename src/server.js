@@ -78,5 +78,8 @@ server.listen(8080, () => {
 
 const tasks = [];
 
+module.exports = {
+    "server": server
+};
 
 
