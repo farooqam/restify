@@ -5,7 +5,7 @@
   "main": "server.js",
   "scripts": {
     "lint": "eslint .",
-    "start": "node server.js",
+    "start": "node src/server.js",
     "test": "npm install && npm run lint && mocha test/**/*.js"
   },
   "repository": {
@@ -34,7 +34,6 @@
     "chai": "^4.2.0",
     "eslint": "^5.6.1",
     "mocha": "^5.2.0",
-    "restify-clients": "^2.6.2",
-    "should": "^13.2.3"
+    "restify-clients": "^2.6.2"
   }
 }
