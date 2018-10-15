@@ -16,8 +16,8 @@ exports.initServer = function(restify, serverSettings) {
 
     const server = restify.createServer();
 
-    pingController.applyRoutes(server);
-    taskController.applyRoutes(server);
+    pingController.router.applyRoutes(server);
+    taskController.router.applyRoutes(server);
 
     const logger = winston.createLogger({
         "level": "info",

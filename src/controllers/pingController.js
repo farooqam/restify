@@ -12,4 +12,6 @@ router.get("/api/ping", (req, res, next) => {
     next();
 });
 
-module.exports = router;
+module.exports = {
+    "router": router
+};

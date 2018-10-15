@@ -49,4 +49,6 @@ router.post("/api/tasks", (req, res, next) => {
     return next();
 });
 
-module.exports = router;
+module.exports = {
+    "router": router
+};
